@@ -36,6 +36,11 @@ def health_check():
     )
 
 
+@app.get("/items")
+def list_items():
+    return list(items_db.values())
+
+
 @app.get("/items/{item_id}")
 def get_item(item_id: int):
     if item_id not in items_db:
